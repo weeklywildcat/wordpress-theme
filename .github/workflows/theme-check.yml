@@ -55,4 +55,19 @@ jobs:
 
       - name: Check placeholder links
         run: |
-          ! grep -R 'href="#"' . --exclude-dir=.git
+          ! grep -R 'href="#"' . \
+            --exclude-dir=.git \
+            --exclude='theme-check.yml'
+
+  theme-review:
+    name: WordPress theme review
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Run WordPress theme checks
+        uses: WordPress/theme-review-action@trunk
+        with:
+          root-folder: .

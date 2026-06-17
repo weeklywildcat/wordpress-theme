@@ -30,3 +30,9 @@ This theme avoids a custom page builder. Most layout work should happen through 
 ## Style variations
 
 The theme includes style variations that can be selected from the WordPress Site Editor. Use these to quickly test a more classic newsprint look or a higher contrast version without changing templates.
+
+## Pull request previews and releases
+
+Pull requests receive a WordPress Playground preview button so editors and contributors can test the theme without setting up a local WordPress install. Every pull request also builds an installable ZIP artifact.
+
+For releases, update the version numbers, create a `v*` tag, and push it. The release workflow packages the theme into `weekly-wildcat.zip` and attaches it to a GitHub release.

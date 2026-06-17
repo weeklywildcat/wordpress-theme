@@ -1,10 +1,10 @@
 /*
 Theme Name: Weekly Wildcat
-Theme URI: https://github.com/Gibsonmb71/wordpress-theme-dev
+Theme URI: https://github.com/weeklywildcat/linea
 Author: Weekly Wildcat contributors
 Author URI: https://github.com/weeklywildcat
 Description: A modern WordPress block theme for student newspaper and school journalism websites.
-Version: 0.4.0
+Version: 0.5.0
 Requires at least: 6.5
 Requires PHP: 8.1
 License: GNU General Public License v2 or later
@@ -71,6 +71,23 @@ a:focus-visible {
   }
 }
 
+@media (forced-colors: active) {
+  :where(a, button, input, textarea, select):focus-visible,
+  .skip-link:focus {
+    outline-color: Highlight;
+  }
+
+  .ww-breaking,
+  .ww-newsletter-box,
+  .ww-notice-box,
+  .ww-author-card,
+  .ww-comments-box,
+  .ww-callout,
+  .ww-module-card {
+    border-color: CanvasText;
+  }
+}
+
 img {
   max-width: 100%;
   height: auto;
@@ -118,6 +135,38 @@ img {
   text-transform: uppercase;
 }
 
+.ww-topbar .wp-block-group {
+  gap: 0.85rem;
+}
+
+.ww-topbar-meta p + p::before,
+.ww-topbar-actions p + form::before {
+  color: var(--wp--preset--color--line);
+  content: "|";
+  margin-right: 0.85rem;
+}
+
+.ww-header-search {
+  align-items: center;
+  display: flex;
+  gap: 0.35rem;
+  margin: 0;
+}
+
+.ww-header-search .wp-block-search__inside-wrapper {
+  width: 12rem;
+}
+
+.ww-header-search .wp-block-search__input {
+  min-height: 2rem;
+  padding: 0.35rem 0.55rem;
+}
+
+.ww-header-search .wp-block-search__button {
+  min-height: 2rem;
+  padding: 0.35rem 0.55rem;
+}
+
 .ww-masthead-title {
   text-wrap: balance;
 }
@@ -143,14 +192,15 @@ img {
 
 .ww-home-layout {
   display: grid;
-  grid-template-columns: minmax(0, 2.1fr) minmax(280px, 0.9fr);
+  grid-template-columns: minmax(0, 2.35fr) minmax(18rem, 0.9fr);
   gap: clamp(1rem, 2vw, 2rem);
   align-items: start;
 }
 
 .ww-story-grid,
 .ww-module-grid,
-.ww-photo-strip {
+.ww-photo-strip,
+.ww-section-card-row {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: clamp(1rem, 2vw, 1.5rem);
@@ -165,6 +215,12 @@ img {
 
 .ww-lead-story {
   min-height: clamp(26rem, 55vw, 34rem);
+}
+
+.ww-lead-query .wp-block-post-template,
+.ww-home-rail .wp-block-post-template {
+  margin: 0;
+  padding: 0;
 }
 
 .ww-lead-story .wp-block-post-title a {
@@ -191,6 +247,69 @@ img {
 .ww-card-list .wp-block-post:last-child {
   border-bottom: 0;
   padding-bottom: 0;
+}
+
+.ww-section-teaser {
+  border-top: 1px solid var(--wp--preset--color--line);
+  padding-top: var(--wp--preset--spacing--40);
+}
+
+.ww-section-teaser .ww-section-heading {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.ww-section-teaser-green .ww-section-heading {
+  color: var(--wp--preset--color--section-green);
+}
+
+.ww-section-teaser-purple .ww-section-heading {
+  color: var(--wp--preset--color--section-purple);
+}
+
+.ww-section-teaser-blue .ww-section-heading {
+  color: var(--wp--preset--color--section-blue);
+}
+
+.ww-section-teaser-query .wp-block-post-template {
+  margin: 0;
+  padding: 0;
+}
+
+.ww-view-all {
+  color: var(--wp--preset--color--accent);
+  font-family: var(--wp--preset--font-family--condensed-sans);
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.ww-ranked-list {
+  counter-reset: ww-ranked;
+}
+
+.ww-ranked-list .wp-block-post-template {
+  display: grid;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.ww-ranked-list .wp-block-post {
+  border-bottom: 1px solid var(--wp--preset--color--line);
+  counter-increment: ww-ranked;
+  display: grid;
+  grid-template-columns: 2rem minmax(0, 1fr);
+  gap: 0.85rem;
+  padding: 0.75rem 0;
+}
+
+.ww-ranked-list .wp-block-post::before {
+  color: var(--wp--preset--color--accent);
+  content: counter(ww-ranked);
+  font-family: var(--wp--preset--font-family--serif);
+  font-size: var(--wp--preset--font-size--large);
+  line-height: 1;
 }
 
 .ww-tight-query .wp-block-post-template {
@@ -260,6 +379,18 @@ img {
   border-radius: 999px;
 }
 
+.ww-featured-media {
+  color: var(--wp--preset--color--muted);
+  font-size: var(--wp--preset--font-size--small);
+}
+
+.ww-post-navigation a {
+  font-family: var(--wp--preset--font-family--condensed-sans);
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
 .ww-comments-box {
   padding: var(--wp--preset--spacing--50);
 }
@@ -292,8 +423,20 @@ img {
   .ww-story-grid,
   .ww-module-grid,
   .ww-photo-strip,
-  .ww-section-front {
+  .ww-section-front,
+  .ww-section-card-row {
     grid-template-columns: 1fr;
+  }
+
+  .ww-home-rail {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--wp--preset--spacing--50);
+  }
+
+  .ww-home-rail .ww-section-heading,
+  .ww-home-rail .ww-newsletter-box {
+    grid-column: 1 / -1;
   }
 
   .ww-lead-story {
@@ -304,6 +447,20 @@ img {
 @media (max-width: 700px) {
   .ww-topbar {
     text-align: center;
+  }
+
+  .ww-topbar > .wp-block-group,
+  .ww-topbar-meta,
+  .ww-topbar-actions {
+    justify-content: center !important;
+  }
+
+  .ww-topbar-actions p + form::before {
+    display: none;
+  }
+
+  .ww-header-search .wp-block-search__inside-wrapper {
+    width: min(100%, 18rem);
   }
 
   .ww-masthead-title {
@@ -321,5 +478,9 @@ img {
   .ww-byline-row {
     align-items: flex-start;
     flex-direction: column;
+  }
+
+  .ww-home-rail {
+    display: block;
   }
 }

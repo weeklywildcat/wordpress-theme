@@ -24,17 +24,6 @@ Early starter theme. The first goal is a clean, valid WordPress theme foundation
 3. In WordPress Admin, go to **Appearance → Themes**.
 4. Activate **Weekly Wildcat**.
 
-## What does not belong in this repo
-
-- `wp-config.php`
-- `.env` files
-- Database exports
-- `wp-content/uploads/`
-- Student photos or private student information
-- Real unpublished articles
-- Passwords, tokens, or API keys
-- School logos or branding files unless the school has approved open redistribution
-
 ## License
 
 Theme code is licensed under GPL-2.0-or-later. See `LICENSE`.

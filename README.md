@@ -1,1 +1,1 @@
-# wordpress-theme
+# The Weekly Wildcat WordPress Theme

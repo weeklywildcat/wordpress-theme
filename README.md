@@ -36,7 +36,20 @@ style.css    Theme metadata and small responsive helpers
 
 ## Validation
 
-This repo includes a basic GitHub Actions workflow that checks PHP syntax, validates JSON files, confirms required block-theme files exist, and checks bundled pattern headers.
+This repo includes GitHub Actions workflows for theme maintenance:
+
+- `Theme checks` validates PHP syntax, JSON files, required block-theme files, pattern headers, accessibility anchors, search labels, and placeholder links.
+- `WordPress theme review` runs the official WordPress Theme Check action in CI.
+- `Build theme ZIP` creates a clean installable ZIP artifact on pull requests.
+- `WordPress Playground preview` adds a browser preview button to pull requests.
+- `Release theme ZIP` publishes a packaged ZIP when a `v*` tag is pushed.
+
+## Release workflow
+
+1. Update the version in `style.css`, `functions.php`, and `readme.txt`.
+2. Create a tag such as `v0.5.0`.
+3. Push the tag to GitHub.
+4. Download `weekly-wildcat.zip` from the generated GitHub release.
 
 ## License
 

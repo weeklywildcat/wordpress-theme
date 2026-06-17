@@ -6,7 +6,9 @@ Weekly Wildcat ships reusable native block patterns for common newspaper modules
 
 - Breaking news banner
 - Lead story and editor picks
+- Most-read rail
 - Section front module
+- Sports, student life, and features card row
 - Photo feature strip
 - Newsletter or announcement callout
 

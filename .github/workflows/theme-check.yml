@@ -49,9 +49,9 @@ jobs:
 
       - name: Check template accessibility anchors
         run: |
-          grep -q 'href="#content"' parts/header.html
           grep -q 'id="content"' templates/*.html
           grep -q ':focus-visible' style.css
+          grep -q '.skip-link:focus' style.css
 
       - name: Check search labels
         run: |

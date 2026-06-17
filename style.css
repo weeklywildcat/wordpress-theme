@@ -1,10 +1,10 @@
 /*
 Theme Name: Weekly Wildcat
-Theme URI: https://github.com/weeklywildcat/wordpress-theme
+Theme URI: https://github.com/Gibsonmb71/wordpress-theme-dev
 Author: Weekly Wildcat contributors
 Author URI: https://github.com/weeklywildcat
-Description: An open-source WordPress block theme for school newspaper and student journalism websites.
-Version: 0.1.0
+Description: A modern WordPress block theme for student newspaper and school journalism websites.
+Version: 0.2.0
 Requires at least: 6.5
 Requires PHP: 8.1
 License: GNU General Public License v2 or later
@@ -13,7 +13,7 @@ Text Domain: weekly-wildcat
 Tags: blog, news, education, full-site-editing, block-patterns
 */
 
-/* Base styles live mostly in theme.json. Keep this file for WordPress theme metadata and small global fallbacks. */
+/* Most design tokens live in theme.json. This file stays small and handles responsive newspaper layout helpers. */
 
 html {
   scroll-behavior: smooth;
@@ -21,8 +21,154 @@ html {
 
 body {
   text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
 }
 
 a {
+  text-decoration-thickness: 0.06em;
   text-underline-offset: 0.18em;
+}
+
+a:hover,
+a:focus-visible {
+  color: var(--wp--preset--color--accent);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.wp-site-blocks {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.wp-site-blocks > main {
+  flex: 1;
+}
+
+.ww-topbar {
+  font-size: var(--wp--preset--font-size--x-small);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.ww-masthead-title a {
+  text-decoration: none;
+}
+
+.ww-masthead-title {
+  text-wrap: balance;
+}
+
+.ww-section-heading {
+  border-top: 2px solid var(--wp--preset--color--ink);
+  padding-top: 0.55rem;
+  font-family: var(--wp--preset--font-family--condensed-sans);
+  font-size: var(--wp--preset--font-size--medium);
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.ww-home-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 2.1fr) minmax(280px, 0.9fr);
+  gap: clamp(1rem, 2vw, 2rem);
+  align-items: start;
+}
+
+.ww-story-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1rem, 2vw, 1.5rem);
+}
+
+.ww-lead-story {
+  min-height: clamp(26rem, 55vw, 34rem);
+}
+
+.ww-lead-story .wp-block-post-title a {
+  color: var(--wp--preset--color--paper);
+}
+
+.ww-lead-story .wp-block-post-excerpt,
+.ww-lead-story .wp-block-post-date,
+.ww-lead-story .wp-block-post-author-name,
+.ww-lead-story .wp-block-post-terms a {
+  color: var(--wp--preset--color--paper);
+}
+
+.ww-card-list .wp-block-post-template {
+  display: grid;
+  gap: 1rem;
+}
+
+.ww-card-list .wp-block-post {
+  border-bottom: 1px solid var(--wp--preset--color--line);
+  padding-bottom: 1rem;
+}
+
+.ww-card-list .wp-block-post:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.ww-tight-query .wp-block-post-template {
+  gap: 0;
+}
+
+.ww-tight-query .wp-block-post {
+  border-bottom: 1px solid var(--wp--preset--color--line);
+  padding: 0.85rem 0;
+}
+
+.ww-tight-query .wp-block-post:first-child {
+  padding-top: 0;
+}
+
+.ww-byline-row {
+  gap: 0.45rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.ww-newsletter-box {
+  border: 1px solid var(--wp--preset--color--line);
+}
+
+@media (max-width: 960px) {
+  .ww-home-layout,
+  .ww-story-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ww-lead-story {
+    min-height: 24rem;
+  }
+}
+
+@media (max-width: 700px) {
+  .ww-topbar {
+    text-align: center;
+  }
+
+  .ww-masthead-title {
+    font-size: clamp(2.4rem, 16vw, 4.2rem) !important;
+  }
+
+  .ww-section-heading {
+    font-size: var(--wp--preset--font-size--normal);
+  }
+
+  .ww-lead-story {
+    min-height: 22rem;
+  }
+
+  .ww-byline-row {
+    align-items: flex-start;
+    flex-direction: column;
+  }
 }

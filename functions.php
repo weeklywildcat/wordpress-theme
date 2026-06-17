@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'WEEKLY_WILDCAT_VERSION', '0.1.0' );
+define( 'WEEKLY_WILDCAT_VERSION', '0.4.0' );
 
 /**
  * Theme setup.
@@ -21,6 +21,9 @@ function weekly_wildcat_setup() {
 	add_theme_support( 'post-thumbnails' );
 	add_theme_support( 'title-tag' );
 	add_theme_support( 'automatic-feed-links' );
+	add_theme_support( 'custom-logo' );
+	add_theme_support( 'align-wide' );
+	add_theme_support( 'html5', array( 'comment-form', 'comment-list', 'gallery', 'caption', 'style', 'script', 'navigation-widgets', 'search-form' ) );
 
 	add_editor_style( 'assets/css/editor.css' );
 }
@@ -36,14 +39,6 @@ function weekly_wildcat_enqueue_assets() {
 		array(),
 		WEEKLY_WILDCAT_VERSION
 	);
-
-	wp_enqueue_script(
-		'weekly-wildcat-theme',
-		get_template_directory_uri() . '/assets/js/theme.js',
-		array(),
-		WEEKLY_WILDCAT_VERSION,
-		true
-	);
 }
 add_action( 'wp_enqueue_scripts', 'weekly_wildcat_enqueue_assets' );
 
@@ -53,7 +48,34 @@ add_action( 'wp_enqueue_scripts', 'weekly_wildcat_enqueue_assets' );
 function weekly_wildcat_register_pattern_categories() {
 	register_block_pattern_category(
 		'weekly-wildcat-homepage',
-		array( 'label' => __( 'Weekly Wildcat Homepage', 'weekly-wildcat' ) )
+		array(
+			'label'       => __( 'Weekly Wildcat Homepage', 'weekly-wildcat' ),
+			'description' => __( 'Homepage patterns for student newspaper layouts.', 'weekly-wildcat' ),
+		)
+	);
+
+	register_block_pattern_category(
+		'weekly-wildcat-sections',
+		array(
+			'label'       => __( 'Weekly Wildcat Sections', 'weekly-wildcat' ),
+			'description' => __( 'Reusable story grids, section lists, and newspaper modules.', 'weekly-wildcat' ),
+		)
+	);
+
+	register_block_pattern_category(
+		'weekly-wildcat-articles',
+		array(
+			'label'       => __( 'Weekly Wildcat Articles', 'weekly-wildcat' ),
+			'description' => __( 'Article endings, author modules, comments, and related-story patterns.', 'weekly-wildcat' ),
+		)
+	);
+
+	register_block_pattern_category(
+		'weekly-wildcat-modules',
+		array(
+			'label'       => __( 'Weekly Wildcat Modules', 'weekly-wildcat' ),
+			'description' => __( 'Reusable callouts, alerts, photo strips, and newsroom modules.', 'weekly-wildcat' ),
+		)
 	);
 }
 add_action( 'init', 'weekly_wildcat_register_pattern_categories' );

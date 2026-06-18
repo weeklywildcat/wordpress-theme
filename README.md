@@ -3,7 +3,7 @@
   <img src="assets/logo-light-text.svg#gh-dark-mode-only" alt="Linea" width="280">
 </p>
 <p align="center">
-A modern WordPress block theme, created by the Weekly Wildcat development team to help school newsrooms publish sharp, fast, and flexible journalism sites.
+A modern WordPress block theme, created by the Weekly Wildcat development team to help school newsrooms publish sharp, fast, and flexible sites.
 </p>
 
 ## Status

@@ -3,7 +3,7 @@
  * Title: Section card row
  * Slug: linea/homepage-section-card-row
  * Categories: linea-homepage, linea-sections
- * Description: A three-column section row for sports, student life, features, or other newsroom desks.
+ * Description: A three-column row for flexible newsroom modules without fragile category assumptions.
  */
 ?>
 <!-- wp:group {"align":"wide","className":"linea-section-card-row","style":{"spacing":{"margin":{"top":"var:preset|spacing|60","bottom":"var:preset|spacing|70"}}},"layout":{"type":"default"}} -->
@@ -13,16 +13,16 @@
 		<!-- wp:group {"layout":{"type":"flex","justifyContent":"space-between","flexWrap":"wrap"}} -->
 		<div class="wp-block-group">
 			<!-- wp:heading {"className":"linea-section-heading","level":2} -->
-			<h2 class="wp-block-heading linea-section-heading">Sports</h2>
+			<h2 class="wp-block-heading linea-section-heading">Visual Story</h2>
 			<!-- /wp:heading -->
 
 			<!-- wp:paragraph {"className":"linea-view-all","fontSize":"x-small"} -->
-			<p class="linea-view-all has-x-small-font-size"><a href="/category/sports/">View all</a></p>
+			<p class="linea-view-all has-x-small-font-size"><a href="#latest-stories">View latest</a></p>
 			<!-- /wp:paragraph -->
 		</div>
 		<!-- /wp:group -->
 
-		<!-- wp:query {"query":{"perPage":1,"pages":0,"offset":8,"postType":"post","order":"desc","orderBy":"date","inherit":false},"className":"linea-section-teaser-query"} -->
+		<!-- wp:query {"query":{"perPage":1,"pages":0,"offset":4,"postType":"post","order":"desc","orderBy":"date","inherit":false},"className":"linea-section-teaser-query"} -->
 		<div class="wp-block-query linea-section-teaser-query">
 			<!-- wp:post-template -->
 				<!-- wp:post-featured-image {"isLink":true,"aspectRatio":"16/9"} /-->
@@ -34,6 +34,12 @@
 				</div>
 				<!-- /wp:group -->
 			<!-- /wp:post-template -->
+
+			<!-- wp:query-no-results -->
+				<!-- wp:paragraph {"fontSize":"small"} -->
+				<p class="has-small-font-size">This card fills in after more visual stories are published.</p>
+				<!-- /wp:paragraph -->
+			<!-- /wp:query-no-results -->
 		</div>
 		<!-- /wp:query -->
 	</div>
@@ -44,16 +50,16 @@
 		<!-- wp:group {"layout":{"type":"flex","justifyContent":"space-between","flexWrap":"wrap"}} -->
 		<div class="wp-block-group">
 			<!-- wp:heading {"className":"linea-section-heading","level":2} -->
-			<h2 class="wp-block-heading linea-section-heading">Student Life</h2>
+			<h2 class="wp-block-heading linea-section-heading">Campus Life</h2>
 			<!-- /wp:heading -->
 
 			<!-- wp:paragraph {"className":"linea-view-all","fontSize":"x-small"} -->
-			<p class="linea-view-all has-x-small-font-size"><a href="/category/student-life/">View all</a></p>
+			<p class="linea-view-all has-x-small-font-size"><a href="#latest-stories">View latest</a></p>
 			<!-- /wp:paragraph -->
 		</div>
 		<!-- /wp:group -->
 
-		<!-- wp:query {"query":{"perPage":1,"pages":0,"offset":9,"postType":"post","order":"desc","orderBy":"date","inherit":false},"className":"linea-section-teaser-query"} -->
+		<!-- wp:query {"query":{"perPage":1,"pages":0,"offset":5,"postType":"post","order":"desc","orderBy":"date","inherit":false},"className":"linea-section-teaser-query"} -->
 		<div class="wp-block-query linea-section-teaser-query">
 			<!-- wp:post-template -->
 				<!-- wp:post-featured-image {"isLink":true,"aspectRatio":"16/9"} /-->
@@ -65,6 +71,12 @@
 				</div>
 				<!-- /wp:group -->
 			<!-- /wp:post-template -->
+
+			<!-- wp:query-no-results -->
+				<!-- wp:paragraph {"fontSize":"small"} -->
+				<p class="has-small-font-size">Campus-life coverage will appear here as the site grows.</p>
+				<!-- /wp:paragraph -->
+			<!-- /wp:query-no-results -->
 		</div>
 		<!-- /wp:query -->
 	</div>
@@ -75,16 +87,16 @@
 		<!-- wp:group {"layout":{"type":"flex","justifyContent":"space-between","flexWrap":"wrap"}} -->
 		<div class="wp-block-group">
 			<!-- wp:heading {"className":"linea-section-heading","level":2} -->
-			<h2 class="wp-block-heading linea-section-heading">Features</h2>
+			<h2 class="wp-block-heading linea-section-heading">Staff Picks</h2>
 			<!-- /wp:heading -->
 
 			<!-- wp:paragraph {"className":"linea-view-all","fontSize":"x-small"} -->
-			<p class="linea-view-all has-x-small-font-size"><a href="/category/features/">View all</a></p>
+			<p class="linea-view-all has-x-small-font-size"><a href="#latest-stories">View latest</a></p>
 			<!-- /wp:paragraph -->
 		</div>
 		<!-- /wp:group -->
 
-		<!-- wp:query {"query":{"perPage":1,"pages":0,"offset":10,"postType":"post","order":"desc","orderBy":"date","inherit":false},"className":"linea-section-teaser-query"} -->
+		<!-- wp:query {"query":{"perPage":1,"pages":0,"offset":6,"postType":"post","order":"desc","orderBy":"date","inherit":false},"className":"linea-section-teaser-query"} -->
 		<div class="wp-block-query linea-section-teaser-query">
 			<!-- wp:post-template -->
 				<!-- wp:post-featured-image {"isLink":true,"aspectRatio":"16/9"} /-->
@@ -96,6 +108,12 @@
 				</div>
 				<!-- /wp:group -->
 			<!-- /wp:post-template -->
+
+			<!-- wp:query-no-results -->
+				<!-- wp:paragraph {"fontSize":"small"} -->
+				<p class="has-small-font-size">Staff picks will appear here after more stories are published.</p>
+				<!-- /wp:paragraph -->
+			<!-- /wp:query-no-results -->
 		</div>
 		<!-- /wp:query -->
 	</div>
